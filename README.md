@@ -1,6 +1,6 @@
 # How to create map from GeoJson shape file using the .NET MAUI Maps
 
-This article contains sample to to create map from GeoJson shape file using the [Syncfusion .NET MAUI Maps](https://help.syncfusion.com/maui/maps/getting-started) control.
+This article contains sample to create map from GeoJson shape file using the [Syncfusion .NET MAUI Maps](https://help.syncfusion.com/maui/maps/getting-started) control.
 
 Please refer the KB through this [link]().
 
