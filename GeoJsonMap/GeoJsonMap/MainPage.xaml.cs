@@ -1,4 +1,5 @@
-﻿using Syncfusion.Maui.Maps;
+﻿using Microsoft.Maui.Controls;
+using Syncfusion.Maui.Maps;
 using System.Xml;
 
 namespace GeoJsonMap;
@@ -8,31 +9,30 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
-	}
-}
 
-[ContentProperty("Source")]
-public class ImageResourceExtension : IMarkupExtension<MapSource>
-{
-    public string Source { set; get; }
-
-    public MapSource ProvideValue(IServiceProvider serviceProvider)
-    {
-        if (String.IsNullOrEmpty(Source))
+        StackLayout verticalStackLayout = new StackLayout
         {
-            IXmlLineInfoProvider lineInfoProvider = serviceProvider.GetService(typeof(IXmlLineInfoProvider)) as IXmlLineInfoProvider;
-            IXmlLineInfo lineInfo = (lineInfoProvider != null) ? lineInfoProvider.XmlLineInfo : new XmlLineInfo();
-            throw new XamlParseException("ImageResourceExtension requires Source property to be set", lineInfo);
-        }
+            Orientation = StackOrientation.Vertical,
+        };
+        
+        SfMaps map = new SfMaps();
+        MapShapeLayer layer = new MapShapeLayer();
+        layer.ShapesSource = MapSource.FromResource("GeoJsonMap.ShapeFiles.world1.shp");
+        map.Layer = layer;
 
-        // string assemblyName = GetType().GetTypeInfo().Assembly.GetName().Name;
-        return MapSource.FromResource(Source);
-    }
+        SfMaps Jsonmap = new SfMaps();
+        MapShapeLayer shapeLayer = new MapShapeLayer();
+        shapeLayer.ShapesSource = MapSource.FromResource("GeoJsonMap.ShapeFiles.world-map.json");
+        Jsonmap.Layer = shapeLayer;
 
-    object IMarkupExtension.ProvideValue(IServiceProvider serviceProvider)
-    {
-        return (this as IMarkupExtension<MapSource>).ProvideValue(serviceProvider);
+        verticalStackLayout.Add(map);
+        verticalStackLayout.Add(Jsonmap);
+        ScrollView scrollView = new ScrollView
+        {
+            Margin = new Thickness(20),
+            Content = verticalStackLayout
+        };
+
+        Content = scrollView;
     }
 }
-
-

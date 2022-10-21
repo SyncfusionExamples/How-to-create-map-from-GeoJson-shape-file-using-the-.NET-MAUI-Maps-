@@ -49,12 +49,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\world-map.json" />
 	  <None Remove="ShapeFiles\world-map.json" />
 	  <None Remove="ShapeFiles\world1.dbf" />
 	  <None Remove="ShapeFiles\world1.shp" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Resources\world-map.json" />
 	  <EmbeddedResource Include="ShapeFiles\world-map.json" />
 	  <EmbeddedResource Include="ShapeFiles\world1.dbf" />
 	  <EmbeddedResource Include="ShapeFiles\world1.shp" />

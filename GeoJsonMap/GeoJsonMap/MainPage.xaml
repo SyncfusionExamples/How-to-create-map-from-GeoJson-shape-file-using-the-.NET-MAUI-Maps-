@@ -4,21 +4,5 @@
              xmlns:map="clr-namespace:Syncfusion.Maui.Maps;assembly=Syncfusion.Maui.Maps"
              xmlns:local="clr-namespace:GeoJsonMap"
              x:Class="GeoJsonMap.MainPage">
-    <ScrollView>
-        <VerticalStackLayout>
-            <map:SfMaps>
-                <map:SfMaps.Layer>
-                    <map:MapShapeLayer ShapesSource="{local:ImageResource GeoJsonMap.ShapeFiles.world1.shp}">
-                    </map:MapShapeLayer>
-                </map:SfMaps.Layer>
-            </map:SfMaps>
-
-            <map:SfMaps>
-                <map:SfMaps.Layer>
-                    <map:MapShapeLayer ShapesSource="{local:ImageResource GeoJsonMap.ShapeFiles.world-map.json}">
-                    </map:MapShapeLayer>
-                </map:SfMaps.Layer>
-            </map:SfMaps>
-        </VerticalStackLayout>
-    </ScrollView>
+   
 </ContentPage>
