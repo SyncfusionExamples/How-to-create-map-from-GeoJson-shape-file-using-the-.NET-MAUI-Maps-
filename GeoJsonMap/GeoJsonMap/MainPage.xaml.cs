@@ -10,29 +10,18 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 
-        StackLayout verticalStackLayout = new StackLayout
-        {
-            Orientation = StackOrientation.Vertical,
-        };
-        
-        SfMaps map = new SfMaps();
+        //Load an map using shape file from embedded resource
+       /* SfMaps map = new SfMaps();
         MapShapeLayer layer = new MapShapeLayer();
         layer.ShapesSource = MapSource.FromResource("GeoJsonMap.ShapeFiles.world1.shp");
         map.Layer = layer;
+        this.Content = map;*/
 
-        SfMaps Jsonmap = new SfMaps();
+        //Load an map using json file from embedded resource
+        SfMaps JsonMap = new SfMaps();
         MapShapeLayer shapeLayer = new MapShapeLayer();
         shapeLayer.ShapesSource = MapSource.FromResource("GeoJsonMap.ShapeFiles.world-map.json");
-        Jsonmap.Layer = shapeLayer;
-
-        verticalStackLayout.Add(map);
-        verticalStackLayout.Add(Jsonmap);
-        ScrollView scrollView = new ScrollView
-        {
-            Margin = new Thickness(20),
-            Content = verticalStackLayout
-        };
-
-        Content = scrollView;
+        JsonMap.Layer = shapeLayer;
+        this.Content = JsonMap;
     }
 }
